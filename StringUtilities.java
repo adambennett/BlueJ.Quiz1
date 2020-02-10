@@ -42,7 +42,9 @@ public class StringUtilities {
      */
     public String removeCharacter(String value, Character charToRemove) {
         StringBuilder build = new StringBuilder(value);
-        build.deleteCharAt(build.indexOf(charToRemove.toString()));
+       while (build.indexOf(charToRemove.toString()) != -1) {
+            build.deleteCharAt(build.indexOf(charToRemove.toString()));
+        }
         return build.toString();
     }
 

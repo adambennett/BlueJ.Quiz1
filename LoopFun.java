@@ -24,7 +24,7 @@ public class LoopFun
           String[] splitted = phrase.split("\\s+");
           String toRet = "";
           for (String s : splitted) {
-              toRet += s.indexOf(0);
+               toRet += s.charAt(0);
           }
           return toRet.toUpperCase();
       }
@@ -60,9 +60,9 @@ public class LoopFun
               if ((newValue > 64 && newValue < 91) || (newValue > 96 && newValue < 123)) {
                   modChars.add(newValue);
               }
-              else if (oldVal > 120) {
-                  int dif = 3 - (123 - oldVal);
-                  char nnew = oldVal;
+              else if (oldVal > 119) {
+                  int dif = 3 - (122 - oldVal);
+                  char nnew = 96;
                   nnew += dif;
                   modChars.add(nnew);
               }
