@@ -1,4 +1,4 @@
- 
+import java.util.ArrayList;
 
 public class LoopFun
 {
@@ -10,7 +10,7 @@ public class LoopFun
        * @return the factorial of the number
        */
       public Integer factorial(Integer number){
-          return null;
+          return (number == 1 || number == 0) ? 1 : number * factorial(number - 1);
       }
 
       /**
@@ -21,7 +21,12 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
+          String[] splitted = phrase.split("\\s+");
+          String toRet = "";
+          for (String s : splitted) {
+              toRet += s.indexOf(0);
+          }
+          return toRet.toUpperCase();
       }
 
       /**
@@ -37,6 +42,43 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          // 97 - 122 'Lowercase'
+          // 65 - 90 'Uppercase'
+
+          ArrayList<Character> chars = new ArrayList<>();
+          ArrayList<Character> modChars = new ArrayList<>();
+          StringBuilder build = new StringBuilder(word);
+          for (int i = 0; i < build.length(); i++) {
+              chars.add(build.charAt(i));
+          }
+
+          for (char c : chars) {
+              char newValue = c;
+              newValue += 3;
+              char oldVal = c;
+
+              if ((newValue > 64 && newValue < 91) || (newValue > 96 && newValue < 123)) {
+                  modChars.add(newValue);
+              }
+              else if (oldVal > 120) {
+                  int dif = 3 - (123 - oldVal);
+                  char nnew = oldVal;
+                  nnew += dif;
+                  modChars.add(nnew);
+              }
+              else if (oldVal > 88) {
+                  int dif = 3 - (91 - oldVal);
+                  char nnew = oldVal;
+                  nnew += dif;
+                  modChars.add(nnew);
+              }
+          }
+
+          String toRet = "";
+          for (Character c : modChars) {
+              toRet += c;
+          }
+
+          return toRet;
       }
 }
